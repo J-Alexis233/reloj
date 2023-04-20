@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reloj</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color:  blue;
+        }
+        .reloj{
+            border-radius: 30px;
+            background: blueviolet;
+            padding: 30px;
+            border: 3px solid black;
+            color: red;
+            
+        }
+    </style>
+    <div class="reloj">00:00:00.000</div>
+    <script>
+        setInterval(() => {
+            var Rel = document.getElementsByClassName("reloj")[0]; 
+            var tiempo = new Date();
+            var hora = tiempo.getHours();
+            if (hora < 10){seg = '0${hora}'}
+            var minuto = tiempo.getMinutes();
+            if (minuto < 10){seg = '0${minuto}'}
+            var seg = tiempo.getSeconds();
+            if (seg < 10){seg = "0" + seg;}
+            var mi = tiempo.getMilliseconds();
+            if (mi < 10){seg = '00${mi}'}
+            if (mi < 100){seg = '0${mi}'}
+            Rel.innerHTML = hora + ":" + minuto + ":" + seg + "." + mi;
+        }, 10);
+    </script>
+</body>
+</html>
